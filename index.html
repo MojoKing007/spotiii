@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Spotify</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/0d205b4581.js" crossorigin="anonymous"></script>
@@ -14,49 +14,33 @@
     <!-- NAVBAR -->
     <nav>
         <div class="nav-status">
-            <a href="#" class="nav-link">
-                <i class="fa-solid fa-house"></i>
-                <span class="nav-txt">Home</span>
-            </a>
-            <a href="#" class="nav-link">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <span class="nav-txt">Search</span>
-            </a>
-            <a href="#" class="nav-link">
-                <i class="fa-brands fa-spotify"></i>
-                <span class="nav-txt">Premium</span>
-            </a>
-            <a href="#" class="nav-link">
-                <i class="fa-solid fa-compact-disc"></i>
-                <span class="nav-txt">Library</span>
-            </a>
-            <a href="#" class="nav-link">
-                <i class="fa-regular fa-plus"></i>
-                <span class="nav-txt">Create</span>
-            </a>
+            <a href="#" class="nav-link"><i class="fa-solid fa-house"></i><span class="nav-txt">Home</span></a>
+            <a href="#" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i><span
+                    class="nav-txt">Search</span></a>
+            <a href="#" class="nav-link"><i class="fa-brands fa-spotify"></i><span class="nav-txt">Premium</span></a>
+            <a href="#" class="nav-link"><i class="fa-solid fa-compact-disc"></i><span
+                    class="nav-txt">Library</span></a>
+            <a href="#" class="nav-link"><i class="fa-regular fa-plus"></i><span class="nav-txt">Create</span></a>
         </div>
     </nav>
 
-    <!-- CATEGORIES -->
+    <!-- CATEGORY BAR -->
     <div class="nav-top">
-        <div class="avatar">R</div>
+        <div class="avatar">D</div>
         <div class="category-bar">
             <button class="chip active">All</button>
             <button class="chip">Hip-Hop</button>
             <button class="chip">Pop</button>
-            <button class="chip">80s Pop</button>
-            <button class="chip">Latin</button>
-            <button class="chip">Hindi</button>
             <button class="chip">Rock</button>
             <button class="chip">Alternative Rock</button>
             <button class="chip">Jazz</button>
+            <button class="chip">Latin</button>
+            <button class="chip">80s Pop</button>
         </div>
     </div>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
-
-        <!-- Your Library row -->
         <section class="shelf">
             <div class="shelf-header">
                 <h2 class="shelf-title">Your Library</h2>
@@ -74,38 +58,27 @@
                 <div class="shelf-row" id="rowAll"></div>
             </div>
         </section>
-
-        <!-- Genre rows — one per genre, rendered by JS -->
         <div id="genreSections"></div>
-
     </main>
 
-    <!-- PLAYER -->
+    <!-- MINI PLAYER -->
     <div class="player">
-        <!-- Mobile player -->
-        <div class="player-mobile" id="playerMobile">
-
-            <!-- Top row: art + info + controls -->
+        <div class="player-mobile" id="playerMobile" onclick="openPanel()">
             <div class="player-top">
                 <div class="now-art-sm">
                     <img id="playerThumbSm" src="img/t1.jpg" alt="">
                 </div>
-
                 <div class="now-info-sm">
                     <div class="now-title-sm" id="nowTitleSm">Ready to play</div>
                     <div class="now-artist-sm" id="nowArtistSm">—</div>
                 </div>
-
-                <div class="player-actions">
-                    <!-- Prev -->
+                <div class="player-actions" onclick="event.stopPropagation()">
                     <button class="p-btn" onclick="prevSong()" aria-label="Previous">
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                             <polygon points="19 20 9 12 19 4 19 20" />
                             <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2.5" />
                         </svg>
                     </button>
-
-                    <!-- Play / Pause -->
                     <button class="play-btn-sm" id="playBtnSm" onclick="togglePlay()" aria-label="Play">
                         <svg class="icon-play" width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
                             <polygon points="5 3 19 12 5 21 5 3" />
@@ -115,8 +88,6 @@
                             <rect x="15" y="4" width="4" height="16" rx="1" />
                         </svg>
                     </button>
-
-                    <!-- Next -->
                     <button class="p-btn" onclick="nextSong()" aria-label="Next">
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                             <polygon points="5 4 15 12 5 20 5 4" />
@@ -125,22 +96,94 @@
                     </button>
                 </div>
             </div>
-
-            <!-- Progress row -->
-            <div class="progress-row-sm">
-                <span class="time-sm" id="currentTimeSm">0:00</span>
-                <div class="progress-track" id="progressTrackSm" onclick="seekTo(event,'sm')">
-                    <div class="progress-fill" id="progressFillSm"></div>
-                </div>
-                <span class="time-sm" id="totalTimeSm">0:00</span>
+            <!-- Mini progress (no seek, just visual) -->
+            <div class="mini-progress">
+                <div class="mini-progress-fill" id="miniProgressFill"></div>
             </div>
+        </div>
+    </div>
 
-        </div><!-- /.player-mobile -->
-    </div><!-- /.player -->
+    <!-- FULLSCREEN NOW PLAYING PANEL -->
+    <div class="np-panel" id="npPanel">
+        <!-- Handle for swipe-down -->
+        <div class="np-handle" id="npHandle"></div>
+
+        <!-- Header -->
+        <div class="np-header">
+            <button class="np-close" onclick="closePanel()" aria-label="Close">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <span class="np-heading">Now Playing</span>
+            <div style="width:36px"></div>
+        </div>
+
+        <!-- Art -->
+        <div class="np-art-wrap">
+            <img class="np-art" id="npThumb" src="img/t1.jpg" alt="">
+        </div>
+
+        <!-- Song info -->
+        <div class="np-meta">
+            <div class="np-title" id="npTitle">Ready to play</div>
+            <div class="np-artist" id="npArtist">—</div>
+        </div>
+
+        <!-- Draggable progress bar -->
+        <div class="np-seek-wrap">
+            <div class="np-track" id="npTrack">
+                <div class="np-fill" id="npFill"></div>
+                <div class="np-thumb" id="npThumbDot"></div>
+            </div>
+            <div class="np-times">
+                <span id="npCurrentTime">0:00</span>
+                <span id="npTotalTime">0:00</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="np-controls">
+            <button class="np-btn" onclick="prevSong()" aria-label="Previous">
+                <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
+                    <polygon points="19 20 9 12 19 4 19 20" />
+                    <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2.5" />
+                </svg>
+            </button>
+            <button class="np-play-btn" id="npPlayBtn" onclick="togglePlay()" aria-label="Play">
+                <svg class="icon-play" width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                <svg class="icon-pause" width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                    <rect x="5" y="4" width="4" height="16" rx="1" />
+                    <rect x="15" y="4" width="4" height="16" rx="1" />
+                </svg>
+            </button>
+            <button class="np-btn" onclick="nextSong()" aria-label="Next">
+                <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
+                    <polygon points="5 4 15 12 5 20 5 4" />
+                    <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Lyrics -->
+        <div class="np-lyrics-section">
+            <div class="np-lyrics-label">Lyrics</div>
+            <div class="np-lyrics" id="npLyrics">
+                <p class="lyrics-placeholder">♪ Lyrics will appear here ♪</p>
+                <p>Add lyrics to each song in the <code>songs</code> array using a <code>lyrics</code> field.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Backdrop -->
+    <div class="np-backdrop" id="npBackdrop" onclick="closePanel()"></div>
 
     <audio id="audioPlayer"></audio>
     <script src="script.js"></script>
-
 </body>
 
 </html>

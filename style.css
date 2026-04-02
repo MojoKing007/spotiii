@@ -550,61 +550,350 @@ nav {
     display: block;
 }
 
-/* Progress row */
-.progress-row-sm {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.time-sm {
-    font-size: 10px;
-    color: var(--text-muted);
-    font-variant-numeric: tabular-nums;
-    min-width: 28px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-}
-
-.time-sm:last-child {
-    text-align: right;
-}
-
-/* Progress track */
-.progress-track {
-    flex: 1;
-    height: 3px;
-    background: rgba(255, 255, 255, 0.12);
+/* Mini progress bar — visual only, no seek interaction */
+.mini-progress {
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 99px;
-    cursor: pointer;
-    position: relative;
-    transition: height 0.15s ease;
+    overflow: hidden;
+    margin-top: 2px;
 }
 
-.progress-track:hover {
-    height: 5px;
-}
-
-.progress-fill {
+.mini-progress-fill {
     height: 100%;
     background: var(--accent);
     border-radius: 99px;
     width: 0%;
-
-    transition: width 0.3s linear;
-    position: relative;
+    transition: width 0.5s linear;
 }
 
-/* Scrubber thumb — appears on hover */
-.progress-track:hover .progress-fill::after {
+/* Make the whole mini player look tappable */
+.player-mobile {
+    cursor: pointer;
+}
+
+.player-actions {
+    cursor: default;
+}
+
+/* ══════════════════════════════════════
+   FULLSCREEN NOW-PLAYING PANEL
+══════════════════════════════════════ */
+
+.np-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 299;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.np-backdrop.open {
+    display: block;
+    opacity: 1;
+}
+
+.np-panel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100dvh;
+    background: #111;
+    z-index: 300;
+    border-radius: 24px 24px 0 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px env(safe-area-inset-bottom, 16px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+    will-change: transform;
+}
+
+.np-panel.open {
+    transform: translateY(0);
+}
+
+/* Drag handle */
+.np-handle {
+    width: 36px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 99px;
+    margin: 12px auto 0;
+    flex-shrink: 0;
+}
+
+/* Header row */
+.np-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0 8px;
+    flex-shrink: 0;
+}
+
+.np-heading {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.np-close {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    border-radius: 50%;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.np-close:active {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Album art */
+.np-art-wrap {
+    flex-shrink: 0;
+    margin: 20px auto 0;
+    width: min(72vw, 280px);
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.np-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Song info */
+.np-meta {
+    margin-top: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.np-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.np-artist {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* ── Draggable seek bar ── */
+.np-seek-wrap {
+    margin-top: 28px;
+    flex-shrink: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.np-track {
+    position: relative;
+    height: 44px;
+    /* large tap target */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Visual track line */
+.np-track::before {
     content: '';
     position: absolute;
-    right: -5px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 99px;
+}
+
+.np-fill {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 99px;
+    width: 0%;
+    pointer-events: none;
+    transition: width 0.25s linear;
+}
+
+/* Thumb dot */
+.np-thumb-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    transform: translateX(-50%);
+    left: 0%;
+    transition: left 0.25s linear, transform 0.15s ease, width 0.15s ease, height 0.15s ease;
+}
+
+/* Make thumb bigger while dragging */
+.np-track.dragging .np-fill,
+.np-track.dragging .np-thumb-dot {
+    transition: none;
+    /* instant during drag */
+}
+
+.np-track.dragging .np-thumb-dot {
+    width: 18px;
+    height: 18px;
+}
+
+.np-track.dragging::before {
+    height: 5px;
+}
+
+/* Time labels */
+.np-times {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2px;
+}
+
+.np-times span {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+}
+
+/* ── Controls ── */
+.np-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 20px;
+    flex-shrink: 0;
+}
+
+.np-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.np-btn:active {
+    color: var(--accent);
+}
+
+.np-play-btn {
+    width: 64px;
+    height: 64px;
+    background: var(--accent);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #000;
+    box-shadow: 0 6px 24px rgba(29, 185, 84, 0.5);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.np-play-btn:active {
+    transform: scale(0.93);
+    box-shadow: 0 3px 12px rgba(29, 185, 84, 0.3);
+}
+
+.np-play-btn .icon-play {
+    display: block;
+    margin-left: 3px;
+}
+
+.np-play-btn .icon-pause {
+    display: none;
+}
+
+.np-play-btn.playing .icon-play {
+    display: none;
+}
+
+.np-play-btn.playing .icon-pause {
+    display: block;
+}
+
+/* ── Lyrics ── */
+.np-lyrics-section {
+    margin-top: 32px;
+    flex-shrink: 0;
+    padding-bottom: 40px;
+}
+
+.np-lyrics-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.np-lyrics {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 14px;
+    padding: 20px;
+    line-height: 1.9;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
+    white-space: pre-wrap;
+}
+
+.np-lyrics .active-line {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.lyrics-placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0 0 8px;
+}
+
+.np-lyrics code {
+    font-family: monospace;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
 }
