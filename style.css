@@ -590,7 +590,7 @@ nav {
     background: var(--accent);
     border-radius: 99px;
     width: 0%;
-    pointer-events: none;
+
     transition: width 0.3s linear;
     position: relative;
 }
