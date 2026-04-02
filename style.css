@@ -874,12 +874,24 @@ nav {
     line-height: 1.9;
     font-size: 15px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.55);
-    white-space: pre-wrap;
+    overflow-y: auto;
+    max-height: 260px;
+    scroll-behavior: smooth;
 }
 
-.np-lyrics .active-line {
-    color: #fff;
+.lyric-line {
+    margin: 0 0 10px;
+    color: rgba(255, 255, 255, 0.25);
+    transition: color 0.3s ease, font-size 0.3s ease, font-weight 0.3s ease;
+    cursor: default;
+}
+
+.lyric-past {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.lyric-active {
+    color: #1DB954;
     font-size: 17px;
     font-weight: 700;
 }

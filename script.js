@@ -10,102 +10,99 @@ const fmt = s => (!s || isNaN(s)) ? '0:00' : Math.floor(s / 60) + ':' + String(M
 // Add a `lyrics` field (plain text, use \n for line breaks)
 
 const songs = [
+
     {
-        mp3: "https://res.cloudinary.com/dotht6y4b/video/upload/v1775025537/Doja_Cat_-_Kiss_Me_More_ft._SZA_d8lluj.mp3",
+        mp3: "https://res.cloudinary.com/dotht6y4b/video/upload/v1775114390/Kiss_Me_More_a5xuup.mp3",
         thumb: "img/t1.jpg",
         title: "Kiss Me More ft. SZA",
         artist: "Doja Cat",
         genre: "pop",
-        lyrics: `[Verse 1: Doja Cat]
-We hug and, yes, we make love
-And always just say goodnight (La-la-la-la-la-la)
-And we cuddle, sure, I do love it
-But I need your lips on mine
+        lyrics: [
+            { t: 0, text: "[Verse 1: Doja Cat]" },
+            { t: 9, text: "We hug and, yes, we make love" },
+            { t: 13, text: "And always just say goodnight (La-la-la-la-la-la)" },
+            { t: 17, text: "And we cuddle, sure, I do love it" },
+            { t: 21, text: "But I need your lips on mine" },
 
-[Chorus: Doja Cat]
-Can you kiss me more?
-We're so young, boy, we ain't got nothin' to lose, oh-oh
-It's just principle
-Baby, hold me 'cause I like the way you groove, oh-oh
+            { t: 23, text: "[Chorus: Doja Cat]" },
+            { t: 24, text: "Can you kiss me more?" },
+            { t: 27, text: "We're so young, boy, we ain't got nothin' to lose, oh-oh" },
+            { t: 33, text: "It's just principle" },
+            { t: 36, text: "Baby, hold me 'cause I like the way you groove, oh-oh" },
 
-[Post-Chorus: Doja Cat]
-Boy, you write your name, I can do the same
-Oh, I love the taste, la-la-la-la-la-la
-All on my tongue, I want it (La-la-la-la-la-la)
-Boy, you write your name, I can do the same
-Oh, I love the taste, la-la-la-la-la-la
-All on my tongue, I want it (La-la-la-la-la-la)
+            { t: 42, text: "[Post-Chorus: Doja Cat]" },
+            { t: 43, text: "Boy, you write your name, I can do the same" },
+            { t: 46, text: "Oh, I love the taste, la-la-la-la-la-la" },
+            { t: 49, text: "All on my tongue, I want it (La-la-la-la-la-la)" },
+            { t: 52, text: "Boy, you write your name, I can do the same" },
+            { t: 55, text: "Oh, I love the taste, la-la-la-la-la-la" },
+            { t: 58, text: "All on my tongue, I want it (La-la-la-la-la-la)" },
 
-[Verse 2: Doja Cat]
-I, I feel like fuckin' somethin'
-But we could be corny, fuck it
-Sugar, I ain't no dummy, dummy
-I likе to say, "What if?" But if
-We could kiss and just cut the rubbish
-Then I might bе onto somethin'
-I ain't givin' you one in public
-I'm givin' you hundreds, fuck it
-Somethin' we just gotta get into
-Sign first, middle, last on the wisdom tooth
-Niggas wishin' that the pussy was a kissin' booth
-Taste breakfast, lunch, and gin and juice
-And that dinner just like dessert too
-And when we French, refresh, give me two
-When I bite that lip, come get me too
-He want lipstick, lip gloss, hickeys too, huh
-See Doja Cat Live
-Get tickets as low as $60
-You might also like
-Love Language
-SZA
-Blind
-SZA
-Fuck the Girls (FTG)
-Doja Cat
-[Chorus: Doja Cat]
-Can you kiss me more?
-We're so young, boy, we ain't got nothin' to lose, oh-oh
-It's just principle
-Baby, hold me 'cause I like the way you groove, oh-oh
+            { t: 60, text: "[Verse 2: Doja Cat]" },
+            { t: 60, text: "I, I feel like fuckin' somethin'" },
+            { t: 63, text: "But we could be corny, fuck it" },
+            { t: 65, text: "Sugar, I ain't no dummy, dummy" },
+            { t: 67, text: "I likе to say, What if? But if" },
+            { t: 69, text: "We could kiss and just cut the rubbish" },
+            { t: 71, text: "Then I might bе onto somethin'" },
+            { t: 73, text: "I ain't givin' you one in public" },
+            { t: 76, text: "I'm givin' you hundreds, fuck it" },
+            { t: 78, text: "Somethin' we just gotta get into" },
+            { t: 80, text: "Sign first, middle, last on the wisdom tooth" },
+            { t: 82, text: "Niggas wishin' that the pussy was a kissin' booth" },
+            { t: 84, text: "Taste breakfast, lunch, and gin and juice" },
+            { t: 86, text: "And that dinner just like dessert too" },
+            { t: 88, text: "And when we French, refresh, give me two" },
+            { t: 90, text: "When I bite that lip, come get me too" },
+            { t: 92, text: "He want lipstick, lip gloss, hickeys too, huh" },
 
-[Post-Chorus: Doja Cat]
-Boy, you write your name, I can do the same
-Oh, I love the taste, la-la-la-la-la-la
-All on my tongue, I want it (La-la-la-la-la-la)
-Boy, you write your name, I can do the same
-Oh, I love the taste, la-la-la-la-la-la
-All on my tongue, I want it
+            { t: 94, text: "[Chorus: Doja Cat]" },
+            { t: 94, text: "Can you kiss me more?" },
+            { t: 96, text: "We're so young, boy, we ain't got nothin' to lose, oh-oh" },
+            { t: 102, text: "It's just principle" },
+            { t: 105, text: "Baby, hold me 'cause I like the way you groove, oh-oh" },
 
-[Verse 3: SZA]
-Say give me a buck, need that gushy stuff
-Push the limit, no, you ain't good enough
-All your niggas say that you lost without me
-All my bitches feel like I dodged the county
-Fuckin' with you feel like jail, nigga (Feel like jail)
-I can't even exhale, nigga (Can't exhale)
-Pussy like holy grail, you know that (Holy grail)
-You gon' make me need bail, you know that
-Caught dippin' with your friend
-You ain't even half, man, lyin' on your ****, you know that
-Got me a bag full of brick, you know that
-Control, don't slow the pace if I throw back
-All this ass for real (All this ass)
-Drama make you feel (It make you feel)
-Fantasy and whip appeal is all I can give you
-[Chorus: Doja Cat, SZA, Both]
-Can you kiss me more?
-We're so young, boy, we ain't got nothin' to lose, oh-oh
-It's just principle
-Baby, hold me 'cause I like the way you groove, oh-oh
-Oh, darlin'
+            { t: 111, text: "[Post-Chorus: Doja Cat]" },
+            { t: 112, text: "Boy, you write your name, I can do the same" },
+            { t: 115, text: "Oh, I love the taste, la-la-la-la-la-la" },
+            { t: 118, text: "All on my tongue, I want it (La-la-la-la-la-la)" },
+            { t: 121, text: "Boy, you write your name, I can do the same" },
+            { t: 124, text: "Oh, I love the taste, la-la-la-la-la-la" },
+            { t: 127, text: "All on my tongue, I want it" },
 
-[Post-Chorus: SZA, Doja Cat]
-Boy, you write your name, I can do the same
-Ooh, I love the taste, oh-la-la-la-la-la
-All on my tongue, I want it
-Boy, you write your name, I can do the same
-Ooh, I love the taste, oh-la-la-la-la-la
-All on my tongue, I want it`
+            { t: 129, text: "[Verse 3: SZA]" },
+            { t: 129, text: "Say give me a buck, need that gushy stuff" },
+            { t: 132, text: "Push the limit, no, you ain't good enough" },
+            { t: 134, text: "All your niggas say that you lost without me" },
+            { t: 136, text: "All my bitches feel like I dodged the county" },
+            { t: 138, text: "Fuckin' with you feel like jail, nigga (Feel like jail)" },
+            { t: 140, text: "I can't even exhale, nigga (Can't exhale)" },
+            { t: 142, text: "Pussy like holy grail, you know that (Holy grail)" },
+            { t: 145, text: "You gon' make me need bail, you know that" },
+            { t: 147, text: "Caught dippin' with your friend" },
+            { t: 149, text: "You ain't even half, man, lyin' on your ****, you know that" },
+            { t: 151, text: "Got me a bag full of brick, you know that" },
+            { t: 153, text: "Control, don't slow the pace if I throw back" },
+            { t: 155, text: "All this ass for real (All this ass)" },
+            { t: 158, text: "Drama make you feel (It make you feel)" },
+            { t: 160, text: "Fantasy and whip appeal is all I can give you" },
+
+            { t: 163, text: "[Chorus: Doja Cat, SZA, Both]" },
+            { t: 163, text: "Can you kiss me more?" }, ,
+            { t: 165, text: "We're so young, boy, we ain't got nothin' to lose, oh-oh" },
+            { t: 171, text: "It's just principle" },
+            { t: 174, text: "Baby, hold me 'cause I like the way you groove, oh-oh" },
+            { t: 180, text: "Oh, darlin'" },
+
+            { t: 182, text: "[Post-Chorus: SZA, Doja Cat]" },
+            { t: 182, text: "Boy, you write your name, I can do the same" },
+            { t: 185, text: "Ooh, I love the taste, oh-la-la-la-la-la" },
+            { t: 188, text: "All on my tongue, I want it" },
+            { t: 190, text: "Boy, you write your name, I can do the same" },
+            { t: 193, text: "Ooh, I love the taste, oh-la-la-la-la-la" },
+            { t: 196, text: "All on my tongue, I want it" }
+
+        ]
 
 
     },
@@ -116,86 +113,81 @@ All on my tongue, I want it`
         title: "The Weeknd, Ariana Grande - Die For You ",
         artist: "The Weeknd",
         genre: "Pop",
-        lyrics: `[Verse 1: The Weeknd]
-I'm findin' ways to articulate the feelin' I'm goin' through
-I just can't say I don't love you (Yeah)
-'Cause I love you, yeah
-It's hard for me to communicate the thoughts that I hold
-But tonight, I'm gon' let you know
-Let me tell the truth
-Baby, let me tell the truth, yeah
-                
-[Pre-Chorus: The Weeknd]
-You know what I'm thinkin', see it in your eyes
-You hate that you want me, hate it when you cry
-You're scared to be lonely, 'specially in the night
-I'm scared that I'll miss you, happens every time
-I don't want this feelin', I can't afford love
-I try to find a reason to pull us apart
-It ain't workin' 'cause you're perfеct
-And I know that you're worth it
-I can't walk away, oh
+        lyrics: [
+            { t: 0, text: "[Verse 1: The Weeknd]" },
+            { t: 14, text: "I'm findin' ways to articulate the feelin' I'm goin' through" },
+            { t: 19, text: "I just can't say I don't love you (Yeah)" },
+            { t: 24, text: "'Cause I love you, yeah" },
+            { t: 28, text: "It's hard for me to communicate the thoughts that I hold" },
+            { t: 32, text: "But tonight, I'm gon' let you know" },
+            { t: 35, text: "Let me tell the truth" },
+            { t: 38, text: "Baby, let me tell the truth, yeah" },
 
-[Chorus: Both, Ariana Grande, The Weeknd]
-Even though we'rе goin' through it (Ah)
-And it makes you feel alone
-Just know that I would die for you (Ooh, ooh)
-Baby, I would die for you, yeah
-The distance and the time between us (Distance and the time)
-It'll never change my mind 'cause
-Baby, I would die for you (I would die for you)
-Baby, I would die for you, yeah
-See The Weeknd Live
-Get tickets as low as $57
-You might also like
-TQG
-KAROL G & Shakira
-Red Ruby Da Sleeze
-Nicki Minaj
-Elevate
-Jeff Grecia
-[Verse 2: Ariana Grande]
-I'm findin' ways to stay concentrated on what I gotta do
-But, baby boy, it's so hard 'round you
-And yes, I'm blamin' you
-And you know I can't fake it, now or never
-And you insinuatin' that you think we might be better
-Better me and you
-Yeah, I know you do
+            { t: 41, text: "[Pre-Chorus: The Weeknd]" },
+            { t: 43, text: "You know what I'm thinkin', see it in your eyes" },
+            { t: 46, text: "You hate that you want me, hate it when you cry" },
+            { t: 50, text: "You're scared to be lonely, 'specially in the night" },
+            { t: 53, text: "I'm scared that I'll miss you, happens every time" },
+            { t: 57, text: "I don't want this feelin', I can't afford love" },
+            { t: 60, text: "I try to find a reason to pull us apart" },
+            { t: 64, text: "It ain't workin' 'cause you're perfеct" },
+            { t: 66, text: "And I know that you're worth it" },
+            { t: 68, text: "I can't walk away, oh" },
 
-[Pre-Chorus: Ariana Grande]
-You know what I'm thinkin', see it in your eyes
-You hate that you want me, hate it when you cry
-It ain't workin' 'cause you're perfect (Mm)
-And I know you deserve it
-I can't walk away
+            { t: 70, text: "[Chorus: Both, Ariana Grande, The Weeknd]" },
+            { t: 71, text: "Even though we'rе goin' through it (Ah)" },
+            { t: 75, text: "And it makes you feel alone" },
+            { t: 77, text: "Just know that I would die for you (Ooh, ooh)" },
+            { t: 81, text: "Baby, I would die for you, yeah" },
+            { t: 86, text: "The distance and the time between us (Distance and the time)" },
+            { t: 89, text: "It'll never change my mind 'cause" },
+            { t: 92, text: "Baby, I would die for you (I would die for you)" },
+            { t: 96, text: "Baby, I would die for you, yea" },
 
-[Chorus: Both, Ariana Grande, The Weeknd]
-Even though we're goin' through it
-And it makes you (Me) feel alone
-Just know that I would die for you (I would die for you)
-Baby, I would die for you, yeah
-The distance and the time between us
-It'll never change my mind 'cause
-Baby, I would die for you (I would die for you, uh)
-Baby, I would die for you, yeah (I would die for you)
-[Bridge: The Weeknd]
-I would die for you, I would lie for you
-Keep it real with you, I would kill for you, my baby
-I'm just sayin', yeah
-I would die for you, I would lie for you
-Keep it real with you, I would kill for you, my baby
-Na-na-na, na-na-na, na-na-na
+            { t: 99, text: "[Verse 2: Ariana Grande]" },
+            { t: 100, text: "I'm findin' ways to stay concentrated on what I gotta do" },
+            { t: 105, text: "But, baby boy, it's so hard 'round you" },
+            { t: 110, text: "And yes, I'm blamin' you" },
+            { t: 114, text: "And you know I can't fake it, now or never" },
+            { t: 117, text: "And you insinuatin' that you think we might be better" },
+            { t: 121, text: "Better me and you" },
+            { t: 124, text: "Yeah, I know you do" },
 
-[Chorus: The Weeknd]
-Even though we're goin' through it (Ooh)
-And it makes you feel alone (No, no)
-Just know that I would die for you (No)
-Baby, I would die for you, yeah
-The distance and the time between us (Ooh)
-It'll never change my mind 'cause (No, no)
-Baby, I would die for you (No)
-Baby, I would die for you, yeah (Oh, babe)`
+            { t: 125, text: "[Pre-Chorus: Ariana Grande]" },
+            { t: 129, text: "You know what I'm thinkin', see it in your eyes" },
+            { t: 132, text: "You hate that you want me, hate it when you cry" },
+            { t: 136, text: "It ain't workin' 'cause you're perfect (Mm)" },
+            { t: 138, text: "And I know you deserve it" },
+            { t: 139, text: "I can't walk away" },
+
+            { t: 140, text: "[Chorus: Both, Ariana Grande, The Weeknd]" },
+            { t: 143, text: "Even though we're goin' through it" },
+            { t: 146, text: "And it makes you (Me) feel alone" },
+            { t: 148, text: "Just know that I would die for you (I would die for you)" },
+            { t: 153, text: "Baby, I would die for you, yeah" },
+            { t: 157, text: "The distance and the time between us" },
+            { t: 160, text: "It'll never change my mind 'cause" },
+            { t: 164, text: "Baby, I would die for you (I would die for you, uh)" },
+            { t: 167, text: "Baby, I would die for you, yeah (I would die for you)" },
+            { t: 169, text: "[Bridge: The Weeknd]" },
+            { t: 171, text: "I would die for you, I would lie for you" },
+            { t: 175, text: "Keep it real with you, I would kill for you, my baby" },
+            { t: 182, text: "I'm just sayin', yeah" },
+            { t: 186, text: "I would die for you, I would lie for you" },
+            { t: 189, text: "Keep it real with you, I would kill for you, my baby" },
+            { t: 196, text: "Na-na-na, na-na-na, na-na-na" },
+
+            { t: 190, text: "[Chorus: The Weeknd]" },
+            { t: 200, text: "Even though we're goin' through it (Ooh)" },
+            { t: 203, text: "And it makes you feel alone (No, no)" },
+            { t: 206, text: "Just know that I would die for you (No)" },
+            { t: 210, text: "Baby, I would die for you, yeah" },
+            { t: 214, text: "The distance and the time between us (Ooh)" },
+            { t: 218, text: "It'll never change my mind 'cause (No, no)" },
+            { t: 221, text: "Baby, I would die for you (No)" },
+            { t: 225, text: "Baby, I would die for you, yeah (Oh, babe)" }
+
+        ]
 
     },
 
@@ -205,94 +197,91 @@ Baby, I would die for you, yeah (Oh, babe)`
         title: "Kendrick Lamar, SZA - All The Stars",
         artist: "Kendrick Lamar, SZA",
         genre: "Pop",
-        lyrics: `[Pre-Chorus: Kendrick Lamar]
-Love, let's talk about love
-Is it anything and everything you hoped for?
-Or do the feeling haunt you? (Haunt)
-I know the feeling haunt you (Haunt)
+        lyrics: [
+            { t: 0, text: "[Pre-Chorus: Kendrick Lamar]" },
+            { t: 20, text: "Love, let's talk about love" },
+            { t: 24, text: "Is it anything and everything you hoped for?" },
+            { t: 29, text: "Or do the feeling haunt you? (Haunt)" },
+            { t: 34, text: "I know the feeling haunt you (Haunt)" },
 
-[Chorus: SZA]
-This may be the night that my dreams might let me know
-All the stars approach you
-All the stars approach you
-All the stars approach you
-This may be the night that my dreams might let me know
-All the stars are closer
-All the stars are closer
-All the stars are closer
+            { t: 39, text: "[Chorus: SZA]" },
+            { t: 40, text: "This may be the night that my dreams might let me know" },
+            { t: 43, text: "All the stars approach you" },
+            { t: 45, text: "All the stars approach you" },
+            { t: 47, text: "All the stars approach you" },
+            { t: 49, text: "This may be the night that my dreams might let me know" },
+            { t: 52, text: "All the stars are closer" },
+            { t: 55, text: "All the stars are closer" },
+            { t: 57, text: "All the stars are closer}" },
 
-[Verse 1: Kendrick Lamar]
-Tell me what you gon' do to me (Do to me)
-Confrontation ain't nothin' new to me (New to me)
-You can bring a bullet, bring a sword, bring a morgue
-But you can't bring the truth to me (Truth to me)
-Fuck you and all your expectations (Expectations)
-I don't even want your congratulations (Congratulations)
-I recognize your false confidence and calculated promises
-All in your conversation (Conversation)
-I hate people that feel entitled (Entitled)
-Look at me crazy 'cause I didn't invite you (Invite you)
-Oh, you important? You the moral to the story? You endorsin'?
-Mothafucka, I don't even like you (Like you)
-Corrupt a man's heart with a gift (With a gift)
-That's how you find out who you dealin' with (Dealin' with)
-A small percentage who I'm buildin' with (Buildin' with)
-I want the credit if I'm losin' or I'm winnin'
-On my mama, that's the realest shit
-You might also like
-THE HEART PART 6
-Drake
-6:16 in LA
-Kendrick Lamar
-So Long, London
-Taylor Swift
-[Pre-Chorus: Kendrick Lamar]
-Love, let's talk about love
-Is it anything and everything you hoped for?
-Or do the feeling haunt you? (Haunt)
-I know the feeling haunt you (Haunt)
+            { t: 58, text: "[Verse 1: Kendrick Lamar]" },
+            { t: 59, text: "Tell me what you gon' do to me (Do to me)" },
+            { t: 62, text: "Confrontation ain't nothin' new to me (New to me)" },
+            { t: 64, text: "You can bring a bullet, bring a sword, bring a morgue" },
+            { t: 66, text: "But you can't bring the truth to me (Truth to me)" },
+            { t: 69, text: "Fuck you and all your expectations (Expectations)" },
+            { t: 71, text: "I don't even want your congratulations (Congratulations)" },
+            { t: 74, text: "I recognize your false confidence and calculated promises" },
+            { t: 77, text: "All in your conversation (Conversation)" },
+            { t: 79, text: "I hate people that feel entitled (Entitled)" },
+            { t: 81, text: "Look at me crazy 'cause I didn't invite you (Invite you)" },
+            { t: 84, text: "Oh, you important? You the moral to the story? You endorsin'?" },
+            { t: 87, text: "Mothafucka, I don't even like you (Like you)" },
+            { t: 89, text: "Corrupt a man's heart with a gift (With a gift)" },
+            { t: 91, text: "That's how you find out who you dealin' with (Dealin' with)" },
+            { t: 94, text: "A small percentage who I'm buildin' with (Buildin' with)" },
+            { t: 96, text: "I want the credit if I'm losin' or I'm winnin'" },
+            { t: 98, text: "On my mama, that's the realest shit" },
 
-[Chorus: SZA]
-This may be the night that my dreams might let me know
-All the stars approach you
-All the stars approach you
-All the stars approach you
-This may be the night that my dreams might let me know
-All the stars are closer
-All the stars are closer
-All the stars are closer
+            { t: 99, text: "[Pre-Chorus: Kendrick Lamar]" },
+            { t: 100, text: "Love, let's talk about love" },
+            { t: 104, text: "Is it anything and everything you hoped for?" },
+            { t: 108, text: "Or do the feeling haunt you? (Haunt)" },
+            { t: 114, text: "I know the feeling haunt you (Haunt)" },
 
-[Verse 2: SZA]
-Skin covered in ego
-Get to talkin' like ya involved
-Like a rebound, no control
-No off switch in the way that you bringin' me down
-It's a turn on, get it away from me
-Know you mean wrong, keep away from me
-And it's all wrong, get it away from me, yeah, yeah
-I just cry for no reason
-I just pray for no reason
-I just thank for the life, for the day
-For the hours and another life breathin'
-How did it all go to feel good?
-You'd leave it all if it feel bad
-Better live your life
-We been runnin' out of time
-[Pre-Chorus: Kendrick Lamar, SZA]
-Love, let's talk about love (Let's talk about love, is)
-Is it anything and everything you hoped for? (Anything, oh, oh, this)
-Or do the feeling haunt you? (Haunt; haunt, haunt)
-I know the feeling haunt you (Haunt)
+            { t: 118, text: "[Chorus: SZA]" },
+            { t: 119, text: "This may be the night that my dreams might let me know" },
+            { t: 122, text: "All the stars approach you" },
+            { t: 124, text: "All the stars approach you" },
+            { t: 127, text: "All the stars approach you" },
+            { t: 129, text: "This may be the night that my dreams might let me know" },
+            { t: 132, text: "All the stars are closer" },
+            { t: 134, text: "All the stars are closer" },
+            { t: 137, text: "All the stars are closer}" },
 
-[Chorus: SZA]
-This may be the night that my dreams might let me know
-All the stars approach you
-All the stars approach you
-All the stars approach you
-This may be the night that my dreams might let me know
-All the stars are closer
-All the stars are closer
-All the stars are closer`
+            { t: 138, text: "[Verse 2: SZA]" },
+            { t: 139, text: "Skin covered in ego" },
+            { t: 142, text: "Get to talkin' like ya involved" },
+            { t: 144, text: "Like a rebound, no control" },
+            { t: 148, text: "No off switch in the way that you bringin' me down" },
+            { t: 151, text: "It's a turn on, get it away from me" },
+            { t: 153, text: "Know you mean wrong, keep away from me" },
+            { t: 156, text: "And it's all wrong, get it away from me, yeah, yeah" },
+            { t: 160, text: "I just cry for no reason" },
+            { t: 163, text: "I just pray for no reason" },
+            { t: 165, text: "I just thank for the life, for the day" },
+            { t: 167, text: "For the hours and another life breathin'" },
+            { t: 170, text: "How did it all go to feel good?" },
+            { t: 172, text: "You'd leave it all if it feel bad" },
+            { t: 175, text: "Better live your life" },
+            { t: 177, text: "We been runnin' out of time" },
+
+            { t: 179, text: "[Pre-Chorus: Kendrick Lamar, SZA]" },
+            { t: 180, text: "Love, let's talk about love (Let's talk about love, is)" },
+            { t: 186, text: "Is it anything and everything you hoped for? (Anything, oh, oh, this)" },
+            { t: 189, text: "Or do the feeling haunt you? (Haunt; haunt, haunt)" },
+            { t: 196, text: "I know the feeling haunt you (Haunt)" },
+
+            { t: 197, text: "[Chorus: SZA]" },
+            { t: 201, text: "This may be the night that my dreams might let me know" },
+            { t: 204, text: "All the stars approach you" },
+            { t: 206, text: "All the stars approach you" },
+            { t: 207, text: "All the stars approach you" },
+            { t: 211, text: "This may be the night that my dreams might let me know" },
+            { t: 214, text: "All the stars are closer" },
+            { t: 216, text: "All the stars are closer" },
+            { t: 217, text: "All the stars are closer}" }
+        ]
 
     },
 
@@ -635,89 +624,92 @@ Somos dos loquito', yeah`
         artist: "Bad Bunny",
         genre: "Latin",
         lyrics: `[Intro]
-If I don't text you, you don't text me, ayy
-If you want me to, I'll pick you up
-I know where you live
-Perhaps today you're upset
-But you have happiness inside
+Si yo no te escribo, tú no me escribe', ey
+Si tú quieres, te busco, yo sé dónde tú vive'
+Quizá hoy está aborrecía'
+Pero por dentro tú tiene' alegría
 
-[Chorus]
-If you want, I'll pull it out
-Two drinks and you know I get horny
-We're not a thing, but we've been entangled for a while, oh-oh
-WhatsApp with no profile picture, you don't save my number (Ayy, ayy, ayy, ayy)
-But I pull it out
-Two drinks and you know I get horny
-We're not a thing, but we've been entangled for a while, oh-oh
-WhatsApp with no profile picture, you don't save my number
+[Coro]
+Si quieres te la saco
+Dos trago' y sabes que me pongo bellaco
+No somo' na', pero estamo' envuelto' hace rato, oh-oh
+WhatsApp sin el retrato, no guarda mi contacto (¡Ey, ey, ey, ey!)
+Pero se la saco
+Dos trago' y sabes que me pongo bellaco
+No somo' na', pero estamo' envuelto' hace rato, oh-oh
+WhatsApp sin el retrato, no guarda mi contacto-to
 
-[Verse 1]
-Everything is underwater
-Baby, let's go for the fourth quarter
-On the Urus ignoring the stop signs
-I'll give it hard to you so I'll be beyond comparison
-Ayy, careful with those jeans, 'cause they'll rip (Ayy)
-That booty will rip them (Ayy)
-I don't know if I'll see you again
-Or if I'll get lost tomorrow
-You're a player, you gave me a crossover
-This time you played me, you gave me a game over
-Eh-eh, 'cause I can't forget
-That dancing of yours that went viral
-Let me know if you'll stay tomorrow
-After the alarm goes off I'll give it to you
-Ayy, today you won't go to work, he, no
+[Verso 1]
+Todo e' underwater (Ey)
+Baby, vamo' pa'l cuarto quarter
+En la Uru' comiéndono' el pare
+Te vo'a dar duro pa' que no me compare', ey
+Cuida'o con ese mahón, que se va a romper (Ey)
+Ese booty lo va a romper (Ey)
+Yo no sé si yo te vuelvo a ver
+Si mañana me vo'a perder
+Tú ere' una player, me hiciste un crossover
+Esta ve' metiste, me diste game over, eh-eh (Huh)
+Porque no puedo olvidar
+El perreo aquel que se fue viral
+Dime si mañana te va' a quedar
+Después de la alarma te lo voy a dar, ey
+Hoy tú no va' a trabajar, je, no
+See Bad Bunny Live
+Get tickets as low as $155
 You might also like
-Burn, Burn, Burn
-Zach Bryan
-Running Up That Hill (A Deal with God)
-Kate Bush
-because i liked a boy
-Sabrina Carpenter
-[Chorus]
-If you want, I'll pull it out
-Two drinks and you know I get horny
-We're not a thing, but we've been entangled for a while, oh-oh
-WhatsApp with no profile picture, you don't save my number
-But I pull it out
-Two drinks and you know I get horny
-We're not a thing, but we've been entangled for a while, oh-oh
-WhatsApp with no profile picture, you don't save my number
+Bad Bunny - Moscow Mule (English Translation)
+Genius English Translations
+The 30th
+Billie Eilish
+THUNDER Y LIGHTNING
+Bad Bunny & Eladio Carrión
+[Coro]
+Si quieres te la saco
+Dos trago' y sabes que me pongo bellaco
+No somo' na', pero estamo' envuelto' hace rato, oh-oh, oh
+WhatsApp sin el retrato, no guarda mi contacto
+Pero se la saco
+Dos trago' y sabes que me pongo bellaco
+No somo' na', pero estamo' envuelto' hace rato, oh-oh
+WhatsApp sin el retrato, no guarda mi contacto
 
-[Verse 2]
-I like them like that, styled up
-Mami, how delicious you look naked
-Maybe you didn't feel what I felt
-But I still owe you a night in a suite
-To give it to you rough, come on, mami, speak
-You're the devil, stop pretending
-To give it to you rough, come on, mami, speak
-You're the devil, stop pretending
+[Verso 2]
+Me gustan así, piquetúa
+Mami, qué rica te ve' esnúa'
+Quizás no sentiste lo que yo sentí
+Pero aún te debo una noche en la suite
+Pa' darte tabla; dale, mami, habla
+Tú ere' una diablona, no te haga'
+Pa' darte tabla; dale, mami, habla
+Tú ere' una diablona, no te haga'
 
-[Bridge]
+[Puente]
 No, no, no, no (No, no, no, no)
 No, no, no, no (No, no, no, no)
 No, no, no, no (No, no, no, no)
-Ayy, I don't know 'bout you, but I'd like to wake up naked
-At a beach near Bali, or else, Cancun
-Order another Moscow mule (Ayy)
-[Verse 3]
-'Cause I'm high, high
-Come and crash with me, fuck it
-Baby, you're a grown-up
-But today I'm high
-Come and crash with me, fuck it, eh
-Fuck it, ayy
+Ey, yo no sé tú, pero yo quisiera amanecer esnú'
+En una playa por Bali, si no, Cancún
+Pide otro moscow mule (Ey)
+[Verso 3]
+Que ando en nota, nota
+Ven y choca
+Conmigo que se joda
+Baby, tú 'tás grandota
+Pero hoy ando en nota, nota
+Ven y choca
+Conmigo que se joda, eh
+Que se joda, ey
 
 [Outro]
-Mami, you want grinding (You want grinding)
-You want grinding (You want grinding)
-You want foreplay (You want foreplay)
-You want foreplay (You want foreplay)
-Mami, you want grinding (You want grinding)
-You want grinding (You want grinding)
-You want foreplay (You want foreplay)
-You want foreplay (You want foreplay)`
+Mami, tú quiere' perreo (Tú quiere' perreo)
+Tú quiere' perreo (Tú quiere' perreo)
+Tú quiere' bellaqueo (Tú quiere' bellaqueo)
+Tú quiere' bellaqueo (Tú quiere' bellaqueo)
+Mami, tú quiere' perreo (Tú quiere' perreo)
+Tú quiere' perreo (Tú quiere' perreo)
+Tú quiere' bellaqueo (Tú quiere' bellaqueo)
+Tú quiere' bellaqueo (Tú quiere' bellaqueo)`
     },
 
 
@@ -727,89 +719,91 @@ You want foreplay (You want foreplay)`
         title: "Drake - Nonstop",
         artist: "Drake",
         genre: "Hip-Hop",
-        lyrics: `[Intro]
-(Tay Keith, fuck these niggas up)
+        lyrics: [
+            { t: 0, text: "[Intro]" },
+            { t: 0, text: "(Tay Keith, fuck these niggas up)" },
 
-[Verse 1: Drake]
-Look, I just flipped a switch (Flipped, flipped)
-I don't know nobody else that's doin' this
-Bodies start to drop, ayy (Hit the floor)
-Now they wanna know me since I hit the top, ayy
-This a Rollie, not a stopwatch, shit don't ever stop
-This the flow that got the block hot, shit got super hot, ayy
-Give me my respect (Give me my respect)
-I just took it left like I'm ambidex'
-Bitch, I move through London with the Eurostep (Two)
-Got a sneaker deal and I ain't break a sweat
-Catch me 'cause I'm gone (Outta there, I’m gone)
-How I go from 6 to 23 like I'm LeBron?
-Servin' up a pack (Servin' up a pack)
-Niggas pullin' gimmicks 'cause they scared to rap, ayy
-Funny how they shook, ayy, got these niggas shook
-Pullin' back the curtain by myself, take a look, ayy
-I'm a bar spitta, I’m a hard hitta
-Yeah, I’m light-skinned, but I'm still a dark nigga
-I'm a wig splitta, I'm a tall figure
-I'm an unforgivin' wild-ass dog nigga
-Somethin' wrong with 'em, got 'em all bitter
-I'm a bill printer, I'm a gravedigger
-Yeah, I am what I am
-I don't have no time for no misunderstandings again
+            { t: 12, text: "[Verse 1: Drake]" },
+            { t: 14, text: "Look, I just flipped a switch (Flipped, flipped)" },
+            { t: 17, text: "I don't know nobody else that's doin' this" },
+            { t: 20, text: "Bodies start to drop, ayy (Hit the floor)" },
+            { t: 24, text: "Now they wanna know me since I hit the top, ayy" },
+            { t: 27, text: "This a Rollie, not a stopwatch, shit don't ever stop" },
+            { t: 31, text: "This the flow that got the block hot, shit got super hot, ayy" },
+            { t: 32, text: "Give me my respect (Give me my respect)" },
+            { t: 35, text: "I just took it left like I'm ambidex'" },
+            { t: 38, text: "Bitch, I move through London with the Eurostep (Two)" },
+            { t: 40, text: "Got a sneaker deal and I ain't break a sweat" },
+            { t: 44, text: "Catch me 'cause I'm gone (Outta there, I’m gone)" },
+            { t: 45, text: "How I go from 6 to 23 like I'm LeBron?" },
+            { t: 50, text: "Servin' up a pack (Servin' up a pack)" },
+            { t: 54, text: "Niggas pullin' gimmicks 'cause they scared to rap, ayy" },
+            { t: 56, text: "Funny how they shook, ayy, got these niggas shook" },
+            { t: 60, text: "Pullin' back the curtain by myself, take a look, ayy" },
+            { t: 63, text: "I'm a bar spitta, I’m a hard hitta" },
+            { t: 66, text: "Yeah, I’m light-skinned, but I'm still a dark nigga" },
+            { t: 70, text: "I'm a wig splitta, I'm a tall figure" },
+            { t: 72, text: "I'm an unforgivin' wild-ass dog nigga" },
+            { t: 75, text: "Somethin' wrong with 'em, got 'em all bitter" },
+            { t: 79, text: "I'm a bill printer, I'm a gravedigger" },
+            { t: 81, text: "Yeah, I am what I am" },
+            { t: 84, text: "I don't have no time for no misunderstandings again" },
 
-[Chorus: Lil Sko & Drake]
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin'
-This a Rollie, not a stopwatch, shit don't ever stop
-From smokin' the chicken, the bass is kickin'
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is–
+            { t: 85, text: "[Chorus: Lil Sko & Drake]" },
+            { t: 86, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 90, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 92, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 95, text: "My head is spinnin'" },
+            { t: 97, text: "This a Rollie, not a stopwatch, shit don't ever stop" },
+            { t: 98, text: "From smokin' the chicken, the bass is kickin'" },
+            { t: 102, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 104, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 107, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 110, text: "My head is–" },
 
-[Verse 2: Drake]
-Future took the business and ran it for me
-I let Ollie take the owl, told him brand it for me
-I get 2 million a pop and that’s standard for me
-Like I went blind, dog, you gotta hand it to me
-(Gotta gimme that shit, dog)
-Prayed, then I prayed again (Amen, Lord)
-Had a moment but it came and went
-(They don't love you no more)
-You don’t wanna play with him (Nah, nah, nah)
-They’ll be mournin' you like 8 a.m. (R.I.P.)
-Pinky ring 'til I get a wedding ring (Woah, yeah)
-Love my brothers, cut 'em in on anything (Big slice)
-And you know it's King Slime Drizzy, damn (Woo, yeah)
-She just said I'm bae, I hit the thizzle dance (Mac Dre shit)
-Either hand is the upper hand (Oh, yeah, shit)
-Got a bubba on my other hand (Woah, yeah, shit, yeah)
-This shit ain't no hundred bands (Nah, nah, nah, nah)
-Palace look like Buckingham
-Bills so big, I call 'em Williams, for real
-Reasons to go crazy, got a trillion, for real
-They been tryin' me but I'm resilient, for real
-I can't go in public like civilian, for real
-And I hardly take offense
-Money for revenge, man, that’s hardly an expense
-Al Haymon checks off of all of my events
-I like all the profit, man, I hardly do percents (I don't do that shit)
-A big part of me resents
-Niggas that I knew from when I started in this shit
-They see what I got and, man, it's hard to be content
-Fuck what they got goin' on, I gotta represent (Ayy)
-[Chorus: Lil Sko & Drake]
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin'
-This a Rollie, not a stopwatch, shit don't ever stop
-From smokin' the chicken, the bass is kickin'
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin', from smokin' the chicken, the bass is kickin'
-My head is spinnin'
-This the flow that got the block hot, shit got super hot`
+            { t: 111, text: "[Verse 2: Drake]" },
+            { t: 112, text: "Future took the business and ran it for me" },
+            { t: 114, text: "I let Ollie take the owl, told him brand it for me" },
+            { t: 117, text: "I get 2 million a pop and that’s standard for me" },
+            { t: 120, text: "Like I went blind, dog, you gotta hand it to me" },
+            { t: 124, text: "(Gotta gimme that shit, dog)" },
+            { t: 125, text: "Prayed, then I prayed again (Amen, Lord)" },
+            { t: 128, text: "Had a moment but it came and went" },
+            { t: 129, text: "(They don't love you no more)" },
+            { t: 132, text: "You don’t wanna play with him (Nah, nah, nah)" },
+            { t: 134, text: "They’ll be mournin' you like 8 a.m. (R.I.P.)" },
+            { t: 137, text: "Pinky ring 'til I get a wedding ring (Woah, yeah)" },
+            { t: 140, text: "Love my brothers, cut 'em in on anything (Big slice)" },
+            { t: 143, text: "And you know it's King Slime Drizzy, damn (Woo, yeah)" },
+            { t: 146, text: "She just said I'm bae, I hit the thizzle dance (Mac Dre shit)" },
+            { t: 149, text: "Either hand is the upper hand (Oh, yeah, shit)" },
+            { t: 153, text: "Got a bubba on my other hand (Woah, yeah, shit, yeah)" },
+            { t: 156, text: "This shit ain't no hundred bands (Nah, nah, nah, nah)" },
+            { t: 160, text: "Palace look like Buckingham" },
+            { t: 162, text: "Bills so big, I call 'em Williams, for real" },
+            { t: 165, text: "Reasons to go crazy, got a trillion, for real" },
+            { t: 168, text: "They been tryin' me but I'm resilient, for real" },
+            { t: 171, text: "I can't go in public like civilian, for real" },
+            { t: 175, text: "And I hardly take offense" },
+            { t: 176, text: "Money for revenge, man, that’s hardly an expense" },
+            { t: 180, text: "Al Haymon checks off of all of my events" },
+            { t: 183, text: "I like all the profit, man, I hardly do percents (I don't do that shit)" },
+            { t: 187, text: "A big part of me resents" },
+            { t: 189, text: "Niggas that I knew from when I started in this shit" },
+            { t: 192, text: "They see what I got and, man, it's hard to be content" },
+            { t: 195, text: "Fuck what they got goin' on, I gotta represent (Ayy)" },
+            { t: 197, text: "[Chorus: Lil Sko & Drake]" },
+            { t: 198, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 200, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 204, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 207, text: "My head is spinnin'" },
+            { t: 208, text: "This a Rollie, not a stopwatch, shit don't ever stop" },
+            { t: 211, text: "From smokin' the chicken, the bass is kickin'" },
+            { t: 213, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 216, text: "My head is spinnin', from smokin' the chicken, the bass is kickin'" },
+            { t: 219, text: "My head is spinnin'" },
+            { t: 220, text: "This the flow that got the block hot, shit got super hot" }
+        ]
 
     },
 
@@ -2649,7 +2643,6 @@ Ozuna
 
     },
 
-
 ];
 
 // ─── State ───────────────────────────────────────────────────────────────────
@@ -2681,13 +2674,19 @@ function updatePlayerUI(s) {
     // Lyrics
     const lyricsEl = el('npLyrics');
     if (lyricsEl) {
-        if (s.lyrics && s.lyrics !== 'Add lyrics here...') {
+        if (Array.isArray(s.lyrics) && s.lyrics.length) {
+            // Timed lyrics — render each line with a data-t attribute
+            lyricsEl.innerHTML = s.lyrics.map((line, i) =>
+                `<p class="lyric-line" data-i="${i}" data-t="${line.t}">${line.text || '&nbsp;'}</p>`
+            ).join('');
+        } else if (typeof s.lyrics === 'string' && s.lyrics && s.lyrics !== 'Add lyrics here...') {
+            // Plain text fallback
             lyricsEl.innerHTML = s.lyrics
                 .split('\n')
-                .map(line => `<p style="margin:0 0 8px">${line || '&nbsp;'}</p>`)
+                .map(line => `<p class="lyric-line">${line || '&nbsp;'}</p>`)
                 .join('');
         } else {
-            lyricsEl.innerHTML = '<p class="lyrics-placeholder">♪ No lyrics added yet ♪</p><p style="color:rgba(255,255,255,0.3);font-size:13px">Add a <code>lyrics</code> field to this song in script.js</p>';
+            lyricsEl.innerHTML = '<p class="lyrics-placeholder">♪ No lyrics added yet ♪</p><p style="color:rgba(255,255,255,0.3);font-size:13px">Add a <code>lyrics</code> array with timestamps to this song in script.js</p>';
         }
     }
 }
@@ -2737,11 +2736,12 @@ function shuffleAll() {
 audio.addEventListener('timeupdate', () => {
     if (!audio.duration || isSeeking) return;
     const ratio = audio.currentTime / audio.duration;
-    // Mini bar
     setStyle('miniProgressFill', 'width', (ratio * 100) + '%');
-    // Panel seek
     updateSeekUI(ratio);
     setText('npCurrentTime', fmt(audio.currentTime));
+
+    // Lyrics highlighter
+    syncLyrics(audio.currentTime);
 });
 
 audio.addEventListener('loadedmetadata', () => {
@@ -2759,6 +2759,38 @@ audio.addEventListener('error', () => {
     console.error('Audio failed to load:', audio.src);
     setPlayingState(false);
 });
+
+// ─── Lyrics sync ─────────────────────────────────────────────────────────────
+
+let activeLyricIdx = -1;
+
+function syncLyrics(currentTime) {
+    const lines = document.querySelectorAll('.lyric-line[data-t]');
+    if (!lines.length) return;
+
+    let newActive = -1;
+    lines.forEach((line, i) => {
+        const t = parseFloat(line.dataset.t);
+        if (currentTime >= t) newActive = i;
+    });
+
+    if (newActive === activeLyricIdx) return; // no change
+    activeLyricIdx = newActive;
+
+    lines.forEach((line, i) => {
+        if (i === newActive) {
+            line.classList.add('lyric-active');
+            line.classList.remove('lyric-past');
+            // Auto-scroll the active line into view
+            line.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else if (i < newActive) {
+            line.classList.remove('lyric-active');
+            line.classList.add('lyric-past');
+        } else {
+            line.classList.remove('lyric-active', 'lyric-past');
+        }
+    });
+}
 
 // ─── Draggable seek bar ───────────────────────────────────────────────────────
 
@@ -2879,8 +2911,6 @@ const GENRE_SECTIONS = [
     { label: 'Jazz', genres: ['jazz'] },
     { label: 'Latin', genres: ['latin', 'latin pop', 'reggaeton'] },
     { label: '80s Pop', genres: ['80s pop', 'synth-pop'] },
-    { label: 'Hindi', genres: ['Hindi'] },
-
 ];
 
 function renderShelves() {
